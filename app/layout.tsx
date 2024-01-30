@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/sonner";
 import { ConvexClientProvider } from "@/providers/convex-client-provider";
 
 
@@ -23,6 +24,7 @@ export default function RootLayout({
 
         <ConvexClientProvider>
           {children}
+          <Toaster richColors closeButton/>
         </ConvexClientProvider>
       </body>
     </html>
