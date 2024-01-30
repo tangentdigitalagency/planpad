@@ -42,6 +42,7 @@ export const SearchInput = () => {
         placeholder='Search Boards'
         onChange={handleChange}
         value={value}
+        type='search'
       />
       
     </div>
