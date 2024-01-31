@@ -17,8 +17,7 @@ export const List = () => {
   return (
     
     <ul className="space-y-4">
-      <p>
-        {userMemberships.data.map((mem) => (
+        {userMemberships.data?.map((mem) => (
           <Item
             key={mem.organization.id}
             id={mem.organization.id}
@@ -26,7 +25,6 @@ export const List = () => {
             imageUrl={mem.organization.imageUrl}
           />
         ))}
-      </p>
 
     </ul>
   )

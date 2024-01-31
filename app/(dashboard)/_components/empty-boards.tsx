@@ -20,19 +20,19 @@ export const EmptyBoards = () => {
 
     mutate({
       orgId: organization!.id,
-      title: 'Untitled Board'
+      title: 'Untitled Pad'
     })
       .then((id) => {
-        console.log('Board created', id)
-        toast.success('Board created', {
-          description: `You have successfully created a new board:`  
+        console.log('Pad created', id)
+        toast.success('Pad created', {
+          description: `You have successfully created a new Pad:`  
           // Add title to toast
         })
        // Reditred to the new board
       })
       .catch((err) => {
-        toast.error('Failed to create board', {
-          description: `An error occurred while creating a new board: ${err.message}`
+        toast.error('Failed to create Pad', {
+          description: `An error occurred while creating a new Pad: ${err.message}`
           })
       })
   }
@@ -40,13 +40,13 @@ export const EmptyBoards = () => {
   return (
     <div className="h-full flex flex-col items-center justify-center">
       <Image src='/note.svg' alt='empty' height={110} width={110} />
-      <h2 className="text-2xl font-semibold mt-6">Create Your First Board</h2>
-      <p className="text-muted-foreground text-sm mt-2"> Start by creating a board!</p>
+      <h2 className="text-2xl font-semibold mt-6">Create Your First Pad</h2>
+      <p className="text-muted-foreground text-sm mt-2"> Start by creating a Pad!</p>
 
       <div className="mt-6">
         <Button disabled={pending} size='lg' onClick={onClick}>
           <Plus className="h-4 w-4 mr-2"/>
-          Create A Board
+          Create A Pad
         </Button>
 
       </div>
