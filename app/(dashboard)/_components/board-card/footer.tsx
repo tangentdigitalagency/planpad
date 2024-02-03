@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import React from "react";
 
 interface FooterProps {
   title: string;
@@ -13,6 +14,13 @@ interface FooterProps {
 
 export const Footer = ({ title, authorLabel, createdAtLabel, isFavorite, onClick, disabled }: FooterProps) => {
 
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+
+    event.stopPropagation();
+    event.preventDefault();
+    onClick();
+  }
+
   return (
     <>
       <div className="relative bg-secondary p-3">
@@ -23,9 +31,9 @@ export const Footer = ({ title, authorLabel, createdAtLabel, isFavorite, onClick
           {authorLabel} - {createdAtLabel}
         </p>
 
-        <button disabled={disabled} onClick={onClick} className={cn("opacity-0 group-hover:opacity-100 transition absolute top-3 right-3 text-muted-foreground hover:text-primary", disabled && "cursor-not-allowed opacity-75")}>
+        <button disabled={disabled} onClick={handleClick} className={cn("opacity-0 group-hover:opacity-100 transition absolute top-3 right-3 text-muted-foreground hover:text-primary", disabled && "cursor-not-allowed opacity-75")}>
          
-          <Star className={cn("h-4 w-4", isFavorite && "fill-primary text-primary")}/>
+          <Star className={cn("h-5 w-5", isFavorite && "fill-primary text-primary")}/>
         </button>
       </div>
     </>
