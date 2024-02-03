@@ -7,8 +7,11 @@ import { Plus } from "lucide-react";
 import { useOrganization } from "@clerk/nextjs";
 import { useApiMutation } from "@/hooks/use-api-mutation";
 import {toast} from 'sonner'
+import { useRouter } from "next/navigation";
 
 export const EmptyBoards = () => {
+
+  const router = useRouter();
 
 
   const {organization } = useOrganization();
@@ -28,7 +31,7 @@ export const EmptyBoards = () => {
           description: `You have successfully created a new Pad:`  
           // Add title to toast
         })
-       // Reditred to the new board
+        router.push(`/board/${id}`)
       })
       .catch((err) => {
         toast.error('Failed to create Pad', {

@@ -2,6 +2,7 @@ import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { Hint } from "@/components/hint";
 
 interface FooterProps {
   title: string;
@@ -31,10 +32,13 @@ export const Footer = ({ title, authorLabel, createdAtLabel, isFavorite, onClick
           {authorLabel} - {createdAtLabel}
         </p>
 
+        <Hint label="Favorite This Pad">
         <button disabled={disabled} onClick={handleClick} className={cn("opacity-0 group-hover:opacity-100 transition absolute top-3 right-3 text-muted-foreground hover:text-primary", disabled && "cursor-not-allowed opacity-75")}>
          
-          <Star className={cn("h-5 w-5", isFavorite && "fill-primary text-primary")}/>
-        </button>
+         <Star className={cn("h-5 w-5", isFavorite && "fill-primary text-primary")}/>
+       </button>
+        </Hint>
+        
       </div>
     </>
   )
